@@ -14,7 +14,11 @@ public class Festival {
     private Long id;
     private String nom;
     private String url;
+
+    @Temporal(TemporalType.DATE)
     private Date debut;
+
+    @Temporal(TemporalType.DATE)
     private Date fin;
     private String ville;
     private int cp;
