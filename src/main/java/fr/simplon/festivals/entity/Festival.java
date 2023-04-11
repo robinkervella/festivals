@@ -14,7 +14,10 @@ public class Festival {
     private Long id;
     private String nom;
     private String url;
+<<<<<<< HEAD
+=======
 
+>>>>>>> dbaa2e5f83c5f562095db7151b26aa4e05ec8e3a
     @Temporal(TemporalType.DATE)
     private Date debut;
 

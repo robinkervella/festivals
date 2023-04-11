@@ -45,7 +45,7 @@ festivals.forEach(function(festival) {
     var festivalMarker = L.marker([festival.lat, festival.lon]).addTo(map);
 
     // Add a custom popup for the festival marker
-    festivalMarker.bindPopup("<b>" + festival.nom + "</b><br>" + festival.lieu + "<br>" + festival.ville);
+    festivalMarker.bindPopup("<b>" + festival.nom + "</b><br>" + festival.lieu + "<br>" + festival.ville + "<br>" + festival.url);
 
     // Open the popup automatically when the map is loaded
     festivalMarker.openPopup();
