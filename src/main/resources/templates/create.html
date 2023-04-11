@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Créer un festival</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Créer un festival</h1>
+<form th:action="@{/festivals}" method="post">
+  <div>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required>
+  </div>
+  <div>
+    <label for="ville">Ville :</label>
+    <input type="text" id="ville" name="ville" required>
+  </div>
+  <div>
+    <label for="lieu">Lieu :</label>
+    <input type="text" id="lieu" name="lieu" required>
+  </div>
+  <div>
+    <label for="cp">Code postal :</label>
+    <input type="number" id="cp" name="cp" required>
+  </div>
+  <div>
+    <label for="debut">Date début :</label>
+    <input type="date" id="debut" name="debut" required>
+  </div>
+  <div>
+    <label for="fin">Date fin :</label>
+    <input type="date" id="fin" name="fin" required>
+  </div>
+  <div>
+    <label for="latitude">Latitude :</label>
+    <input type="text" id="latitude" name="latitude" required>
+  </div>
+  <div>
+    <label for="longitude">Longitude :</label>
+    <input type="text" id="longitude" name="longitude" required>
+  </div>
+  <button type="submit">Créer</button>
+</form>
+</body>
+</html>

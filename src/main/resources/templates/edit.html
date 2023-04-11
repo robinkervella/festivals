@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Éditer le festival</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Éditer le festival</h1>
+<form th:action="@{/festivals/{id}(id=${festival.id})}" method="post">
+  <div>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" th:value="${festival.nom}" required>
+  </div>
+  <div>
+    <label for="ville">Ville :</label>
+    <input type="text" id="ville" name="ville" th:value="${festival.ville}" required>
+  </div>
+  <div>
+    <label for="lieu">Lieu :</label>
+    <input type="text" id="lieu" name="lieu" th:value="${festival.lieu}" required>
+  </div>
+  <div>
+    <label for="cp">Code postal :</label>
+    <input type="number" id="cp" name="cp" th:value="${festival.cp}" required>
+  </div>
+  <div>
+    <label for="debut">Date début :</label>
+    <input type="date" id="debut" name="debut" th:value="${festival.debut}" required>
+  </div>
+  <div>
+    <label for="fin">Date fin :</label>
+    <input type="date" id="fin" name="fin" th:value="${festival.fin}" required>
+  </div>
+  <button type="submit">Sauvegarder</button>
+</form>
+</body>
+</html>
