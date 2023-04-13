@@ -1,13 +1,21 @@
-
-// Add map focus on Bretagne
+/**
+ Initialise une carte centrée sur la région Bretagne
+ @type {L.Map} l'objet Leaflet représentant la carte
+ */
 let map = L.map('map').setView([48.202047, -2.932644], 8);
 
-// Add OSM tile layer to the map
+/**
+ Ajoute une couche de tuiles OpenStreetMap à la carte
+ @type {L.TileLayer} la couche de tuiles ajoutée à la carte
+ */
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-
+/**
+ Effectue une requête à l'API pour récupérer la liste des festivals, puis crée un marqueur pour chacun d'entre eux et l'ajoute à la carte
+ @type {Promise} une promesse représentant les données récupérées depuis l'API
+ */
 fetch("http://localhost:8080/api/festivals")
     .then(response => response.json())
     .then(data => {
