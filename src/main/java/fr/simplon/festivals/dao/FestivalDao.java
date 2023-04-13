@@ -16,6 +16,7 @@ public interface FestivalDao {
          */
         void saveFestival(Festival festival);
 
+
         void updateFestival(Festival festival);
 
 
@@ -26,12 +27,6 @@ public interface FestivalDao {
         List<Festival> getAllFestivals();
 
 
-        /**
-
-         Cette méthode recherche un festival dans la base de données par son identifiant.
-         @param id l'identifiant du festival à rechercher
-         @return un objet Optional contenant le festival si l'identifiant est valide, sinon Optional.empty()
-         */
         Optional<Festival> findById(Long id);
 
 }

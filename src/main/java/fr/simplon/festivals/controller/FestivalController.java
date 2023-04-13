@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-
+import java.util.Optional;
 /**
  Cette classe est un contrôleur Spring MVC qui gère les requêtes liées aux festivals.
  */
@@ -89,12 +89,10 @@ public class FestivalController {
         return "redirect:/";
     }
 
-
     @PostMapping("/editerFestival")
     public String editerFestival(@ModelAttribute("festival") Festival festival, @PathVariable("id") Long id) {
         festival.setId(id);
         festivalDao.updateFestival(festival);
         return "redirect:/";
-
     }
 }

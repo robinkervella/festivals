@@ -28,6 +28,10 @@ public class FestivalDaoImpl implements FestivalDao {
         festivalRepository.save(festival);
     }
 
+
+
+
+
     @Override
     public void updateFestival(Festival festival) {
         festivalRepository.save(festival);
@@ -41,7 +45,6 @@ public class FestivalDaoImpl implements FestivalDao {
     @Override
     public List<Festival> getAllFestivals() {
         return festivalRepository.findAll(); }
-
     /**
      Recherche un festival dans la base de données par son identifiant.
      @param id l'identifiant du festival à rechercher
