@@ -80,20 +80,20 @@ public class FestivalController {
      */
     @PostMapping("/ajouterFestival")
     public String enregistrerFestival(@ModelAttribute("festival") Festival festival) {
-        if (festival.getId() == null) {
-            // c'est un nouveau festival, donc il faut l'enregistrer dans la base de données
-            festivalDao.saveFestival(festival);
-        } else {
-            // c'est un festival existant, donc il faut le mettre à jour dans la base de données
-            festivalDao.updateFestival(festival);
-        }
+        festivalDao.saveFestival(festival);
         return "redirect:/";
     }
 
     @PostMapping("/editerFestival")
-    public String editerFestival(@ModelAttribute("festival") Festival festival, @PathVariable("id") Long id) {
-        festival.setId(id);
+    public String editerFestival(@ModelAttribute("festival") Festival festival) {
+        Festival festivalOriginal = festivalDao.findById(festival.getId())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid festival Id:" + festival.getId()));
+        festival.setLat(festivalOriginal.getLat());
+        festival.setLon(festivalOriginal.getLon());
+        festival.setUrl(festivalOriginal.getUrl());
         festivalDao.updateFestival(festival);
         return "redirect:/";
     }
+
+
 }
