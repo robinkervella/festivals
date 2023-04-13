@@ -84,6 +84,13 @@ public class FestivalController {
         return "redirect:/";
     }
 
+    /**
+     * Cette méthode est responsable de l'édition d'un festival dans le système en mettant à jour ses informations et en redirigeant l'utilisateur vers la page d'accueil. Elle prend en paramètre l'objet festival.
+     *
+     * @param festival Un objet de type Festival contenant les informations mises à jour du festival.
+     * @return Une chaîne de caractères représentant le chemin de redirection vers la page d'accueil.
+     * @throws IllegalArgumentException Si l'ID du festival est invalide.
+     */
     @PostMapping("/editerFestival")
     public String editerFestival(@ModelAttribute("festival") Festival festival) {
         Festival festivalOriginal = festivalDao.findById(festival.getId())
