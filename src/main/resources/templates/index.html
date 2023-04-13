@@ -9,25 +9,36 @@
 <body>
 <h1>Les festivals de votre région</h1>
 <div id="map"></div>
-<div class=""><a href="create"><button id="add-festival">Ajouter un festival</button></a></div>
-<ul id="festival-list">
-    <li th:each="festival : ${festivals}">
-        <span th:text="${festival.nom}"></span>
-        <span th:text="${festival.ville}"></span>
-        <span th:text="${festival.lieu}"></span>
-        <span th:text="${festival.debut}"></span>
-        <span th:text="${festival.fin}"></span>
-        <form th:action="@{/edit/{id}(id=${festival.id})}" method="get">
-            <button type="submit">Editer</button>
-        </form>
+<div class=""><a href="create" style="text-decoration: none;"><button id="add-festival">Ajouter un festival</button></a></div>
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Ville</th>
+        <th>Lieu</th>
+        <th>Début</th>
+        <th>Fin</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="festival : ${festivals}">
+        <td th:text="${festival.nom}"></td>
+        <td th:text="${festival.ville}"></td>
+        <td th:text="${festival.lieu}"></td>
+        <td th:text="${festival.debut}"></td>
+        <td th:text="${festival.fin}"></td>
+        <td>
+            <form th:action="@{/edit/{id}(id=${festival.id})}" method="get">
+                <button type="submit">Editer</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
-    </li>
-</ul>
 
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 <script src="script.js"></script>
-<script th:inline="javascript">
-    var festivals = /*[[${festivals}]]*/ [];
-</script>
 </body>
 </html>

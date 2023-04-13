@@ -39,9 +39,12 @@ public class FestivalController {
         return "edit";
     }
 
-
-
-
+    @GetMapping("/api/festivals")
+    @ResponseBody
+    public List<Festival> getAllFestivalsAsJson() {
+        List<Festival> festivals = festivalDao.getAllFestivals();
+        return festivals;
+    }
 
 
     @PostMapping("/ajouterFestival")
