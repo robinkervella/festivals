@@ -24,8 +24,14 @@ public class Festival {
     private int cp;
     @Column(length = 1024)
     private String lieu;
+    /**
+     * Ce champ représente la date de début du festival et est formaté comme suit: "dd/MM/yyyy".
+     */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date debut;
+    /**
+     * Ce champ représente la date de fin du festival et est formaté comme suit: "dd/MM/yyyy".
+     */
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date fin;
     private double lat;

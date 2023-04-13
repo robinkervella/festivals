@@ -27,7 +27,12 @@ public interface FestivalDao {
      */
     List<Festival> getAllFestivals();
 
-
+    /**
+     * Cette méthode trouve un festival dans la base de données en utilisant son ID.
+     *
+     * @param id L'ID du festival à trouver.
+     * @return Un objet Optional contenant le festival s'il est trouvé, ou un Optional vide s'il ne l'est pas.
+     */
     Optional<Festival> findById(Long id);
 
 }

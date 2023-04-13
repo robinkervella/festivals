@@ -31,7 +31,11 @@ public class FestivalDaoImpl implements FestivalDao {
         festivalRepository.save(festival);
     }
 
-
+    /**
+     * Cette méthode met à jour un objet festival dans la base de données.
+     *
+     * @param festival Un objet de type Festival contenant les informations mises à jour du festival.
+     */
     @Override
     public void updateFestival(Festival festival) {
         festivalRepository.save(festival);
