@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Créer un festival</h1>
-<form th:action="@{/festivals}" method="post">
+<form th:action="@{/ajouterFestival}" th:object="${festival}" method="post">
   <div>
     <label for="nom">Nom :</label>
     <input type="text" id="nom" name="nom" required>
@@ -25,6 +25,10 @@
     <input type="number" id="cp" name="cp" required>
   </div>
   <div>
+    <label for="url">URL :</label>
+    <input type="text" id="url" name="url" required>
+  </div>
+  <div>
     <label for="debut">Date début :</label>
     <input type="date" id="debut" name="debut" required>
   </div>
@@ -33,12 +37,12 @@
     <input type="date" id="fin" name="fin" required>
   </div>
   <div>
-    <label for="latitude">Latitude :</label>
-    <input type="text" id="latitude" name="latitude" required>
+    <label for="lat">Latitude :</label>
+    <input type="text" id="lat" name="lat" required>
   </div>
   <div>
-    <label for="longitude">Longitude :</label>
-    <input type="text" id="longitude" name="longitude" required>
+    <label for="lon">Longitude :</label>
+    <input type="text" id="lon" name="lon" required>
   </div>
   <button type="submit">Créer</button>
 </form>

@@ -1,45 +1,46 @@
 package fr.simplon.festivals.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
-@Table (name = "festivals")
+@Table(name="festivals")
 public class Festival {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
     private String url;
-    @Temporal(TemporalType.DATE)
-    private Date debut;
-
-    @Temporal(TemporalType.DATE)
-    private Date fin;
     private String ville;
     private int cp;
+    @Column(length=1024)
     private String lieu;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    private Date debut;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    private Date fin;
     private double lat;
     private double lon;
 
-    public Festival(Long id, String nom, String url, Date debut, Date fin, String ville, int cp, String lieu, double lat, double lon) {
-        this.id = id;
+    public Festival() {
+        // Constructeur sans argument
+    }
+
+    public Festival(String nom, String url, String ville, int cp, String lieu, Date debut, Date fin, double lat, double lon) {
         this.nom = nom;
-        this.url = url;
-        this.debut = debut;
-        this.fin = fin;
+        this.url=url;
         this.ville = ville;
         this.cp = cp;
         this.lieu = lieu;
+        this.debut = debut;
+        this.fin = fin;
         this.lat = lat;
         this.lon = lon;
-    }
-
-    public Festival() {
-
     }
 
     public Long getId() {
@@ -66,22 +67,6 @@ public class Festival {
         this.url = url;
     }
 
-    public Date getDebut() {
-        return debut;
-    }
-
-    public void setDebut(Date debut) {
-        this.debut = debut;
-    }
-
-    public Date getFin() {
-        return fin;
-    }
-
-    public void setFin(Date fin) {
-        this.fin = fin;
-    }
-
     public String getVille() {
         return ville;
     }
@@ -104,6 +89,22 @@ public class Festival {
 
     public void setLieu(String lieu) {
         this.lieu = lieu;
+    }
+
+    public Date getDebut() {
+        return debut;
+    }
+
+    public void setDebut(Date debut) {
+        this.debut = debut;
+    }
+
+    public Date getFin() {
+        return fin;
+    }
+
+    public void setFin(Date fin) {
+        this.fin = fin;
     }
 
     public double getLat() {

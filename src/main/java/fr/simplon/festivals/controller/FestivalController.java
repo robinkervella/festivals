@@ -49,20 +49,21 @@ public class FestivalController {
 
     @PostMapping("/ajouterFestival")
     public String enregistrerFestival(@ModelAttribute("festival") Festival festival) {
-        festivalDao.saveFestival(festival);
+        if(festival.getId() == null){
+        // c'est un nouveau festival, donc il faut l'enregistrer dans la base de données
+            festivalDao.saveFestival(festival);
+        } else {
+        // c'est un festival existant, donc il faut le mettre à jour dans la base de données
+            festivalDao.updateFestival(festival);
+        }
         return "redirect:/";
     }
 
-    @PostMapping("/submit")
-    public String submitForm (@ModelAttribute("festival") Festival festival, Model model) {
-        //Enregistrer le festival dans la base de données
-        festivalDao.saveFestival(festival);
-
-        //Ajouter le festival à la liste pour l'afficher dans la vue index
-        List<Festival> festivals = festivalDao.getAllFestivals();
-        model.addAttribute("festivals", festivals);
-
-        //Retourne la vue index qui affichera la liste des festivals
-        return "index";
+    @PostMapping("/editerFestival")
+    public String editerFestival(@ModelAttribute("festival") Festival festival, @PathVariable("id") Long id) {
+        festival.setId(id);
+        festivalDao.updateFestival(festival);
+        return "redirect:/";
     }
+
 }
