@@ -109,3 +109,23 @@ form {
     margin: 0 auto;
     width: 50%;
 }
+
+#search {
+
+    display: grid;
+    grid-template-columns: 20% 50%;
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 30px;
+}
+
+#search label {
+    grid-column: 1 / 2;
+    padding: 3px;
+    font-weight: bold;
+}
+
+#search input[type="text"] {
+
+    grid-column: 2 / 3;
+}

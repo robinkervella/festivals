@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Les festivals de votre région</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+          integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
     <link rel="stylesheet" href="style.css?v=1">
 </head>
 <body>
 <h1>Les festivals de votre région</h1>
 <div id="map"></div>
-<div class=""><a href="create" style="text-decoration: none;"><button id="add-festival">Ajouter un festival</button></a></div>
+<div class=""><a href="create" style="text-decoration: none;">
+    <button id="add-festival">Ajouter un festival</button>
+</a></div>
+<div id="search">
+    <label for="search-input">Rechercher un festival :</label>
+    <input type="text" id="search-input" oninput="filterFestivals()" placeholder="Entrez un nom ou une ville...">
+</div>
 <table>
     <thead>
     <tr>
@@ -38,7 +45,8 @@
 </table>
 
 
-<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 <script src="script.js"></script>
 </body>
 </html>
