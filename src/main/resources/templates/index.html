@@ -8,19 +8,20 @@
     <link rel="stylesheet" href="style.css?v=1">
 </head>
 <body>
-<h1>Les festivals de votre région</h1>
+<h1 th:text="#{index.title}">Les festivals de votre région</h1>
+
 <div id="map"></div>
 <form action="create">
-    <button type="submit" id="add-festival">Ajouter un festival</button>
+    <button type="submit" id="add-festival" th:text="#{index.add}">Ajouter un festival</button>
 </form>
 <table id="festivals-table">
     <thead>
     <tr>
-        <th>Nom</th>
-        <th>Ville</th>
-        <th>Lieu</th>
-        <th>Début</th>
-        <th>Fin</th>
+        <th th:text="#{index.nom}">Nom</th>
+        <th th:text="#{index.ville}">Ville</th>
+        <th th:text="#{index.lieu}">Lieu</th>
+        <th th:text="#{index.début}">Début</th>
+        <th th:text="#{index.fin}">Fin</th>
         <th></th>
     </tr>
     </thead>
@@ -33,7 +34,7 @@
         <td th:text="${festival.fin}"></td>
         <td>
             <form th:action="@{/edit/{id}(id=${festival.id})}" method="get">
-                <button type="submit">Editer</button>
+                <button type="submit" th:text="#{index.edit}">Editer</button>
             </form>
         </td>
     </tr>

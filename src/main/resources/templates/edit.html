@@ -6,32 +6,32 @@
     <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-<h1>Éditer le festival</h1>
+<h1 th:text="#{edit.edit}">Éditer le festival</h1>
 <form th:action="@{/editerFestival}" th:object="${festival}" method="post">
     <input type="hidden" id="id" name="id" th:value="${festival.id}">
 
     <div>
-        <label for="nom">Nom :</label>
+        <label for="nom" th:text="#{index.nom}">Nom :</label>
         <input type="text" id="nom" name="nom" th:value="${festival.nom}" required>
     </div>
     <div>
-        <label for="ville">Ville :</label>
+        <label for="ville" th:text="#{index.ville}">Ville :</label>
         <input type="text" id="ville" name="ville" th:value="${festival.ville}" required>
     </div>
     <div>
-        <label for="lieu">Lieu :</label>
+        <label for="lieu" th:text="#{index.lieu}">Lieu :</label>
         <input type="text" id="lieu" name="lieu" th:value="${festival.lieu}" required>
     </div>
     <div>
-        <label for="cp">Code postal :</label>
+        <label for="cp" th:text="#{edit.cp}">Code postal :</label>
         <input type="number" id="cp" name="cp" th:value="${festival.cp}" required>
     </div>
     <div>
-        <label for="debut">Date début :</label>
+        <label for="debut" th:text="#{edit.datestart}">Date début :</label>
         <input type="date" id="debut" name="debut" th:value="${festival.debut}" required>
     </div>
     <div>
-        <label for="fin">Date fin :</label>
+        <label for="fin" th:text="#{edit.dateend}">Date fin :</label>
         <input type="date" id="fin" name="fin" th:value="${festival.fin}" required>
     </div>
     <!-- Champ caché pour conserver la valeur initiale de lat -->
@@ -40,7 +40,7 @@
     <input type="hidden" id="lon" name="lon" th:value="${festival.lon}">
     <!-- Champ caché pour conserver la valeur initiale d'url -->
     <input type="hidden" id="url" name="url" th:value="${festival.url}">
-    <button type="submit">Sauvegarder</button>
+    <button type="submit" th:text="#{edit.save}">Sauvegarder</button>
 </form>
 </body>
 </html>

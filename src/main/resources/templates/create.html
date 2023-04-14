@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Créer un festival</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Créer un festival</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Créer un festival</h1>
+<h1 th:text="#{create.createfest}">Créer un festival</h1>
 <form th:action="@{/ajouterFestival}" th:object="${festival}" method="post">
-  <div>
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom" required>
-  </div>
-  <div>
-    <label for="ville">Ville :</label>
-    <input type="text" id="ville" name="ville" required>
-  </div>
-  <div>
-    <label for="lieu">Lieu :</label>
-    <input type="text" id="lieu" name="lieu" required>
-  </div>
-  <div>
-    <label for="cp">Code postal :</label>
-    <input type="number" id="cp" name="cp" required>
-  </div>
-  <div>
-    <label for="url">URL :</label>
-    <input type="text" id="url" name="url" required>
-  </div>
-  <div>
-    <label for="debut">Date début :</label>
-    <input type="date" id="debut" name="debut" required>
-  </div>
-  <div>
-    <label for="fin">Date fin :</label>
-    <input type="date" id="fin" name="fin" required>
-  </div>
-  <div>
-    <label for="lat">Latitude :</label>
-    <input type="text" id="lat" name="lat" required>
-  </div>
-  <div>
-    <label for="lon">Longitude :</label>
-    <input type="text" id="lon" name="lon" required>
-  </div>
-  <button type="submit">Créer</button>
+    <div>
+        <label for="nom" th:text="#{index.nom}">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+    </div>
+    <div>
+        <label for="ville" th:text="#{index.ville}">Ville :</label>
+        <input type="text" id="ville" name="ville" required>
+    </div>
+    <div>
+        <label for="lieu" th:text="#{index.lieu}">Lieu :</label>
+        <input type="text" id="lieu" name="lieu" required>
+    </div>
+    <div>
+        <label for="cp" th:text="#{edit.cp}">Code postal :</label>
+        <input type="number" id="cp" name="cp" required>
+    </div>
+    <div>
+        <label for="url">URL :</label>
+        <input type="text" id="url" name="url" required>
+    </div>
+    <div>
+        <label for="debut" th:text="#{edit.datestart}">Date début :</label>
+        <input type="date" id="debut" name="debut" required>
+    </div>
+    <div>
+        <label for="fin" th:text="#{edit.dateend}">Date fin :</label>
+        <input type="date" id="fin" name="fin" required>
+    </div>
+    <div>
+        <label for="lat">Latitude :</label>
+        <input type="text" id="lat" name="lat" required>
+    </div>
+    <div>
+        <label for="lon">Longitude :</label>
+        <input type="text" id="lon" name="lon" required>
+    </div>
+    <button type="submit" th:text="#{create.create}">Créer</button>
 </form>
 </body>
 </html>
