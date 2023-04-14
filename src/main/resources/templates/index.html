@@ -10,14 +10,10 @@
 <body>
 <h1>Les festivals de votre région</h1>
 <div id="map"></div>
-<div class=""><a href="create" style="text-decoration: none;">
-    <button id="add-festival">Ajouter un festival</button>
-</a></div>
-<div id="search">
-    <label for="search-input">Rechercher un festival :</label>
-    <input type="text" id="search-input" oninput="filterFestivals()" placeholder="Entrez un nom ou une ville...">
-</div>
-<table>
+<form action="create">
+    <button type="submit" id="add-festival">Ajouter un festival</button>
+</form>
+<table id="festivals-table">
     <thead>
     <tr>
         <th>Nom</th>
@@ -29,7 +25,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="festival : ${festivals}">
+    <tr th:each="festival : ${festivals}" th:data-lat="${festival.lat}" th:data-lon="${festival.lon}">
         <td th:text="${festival.nom}"></td>
         <td th:text="${festival.ville}"></td>
         <td th:text="${festival.lieu}"></td>
