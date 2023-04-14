@@ -24,7 +24,7 @@ fetch("http://localhost:8080/api/festivals")
         // Créez un marqueur pour chaque festival et ajoutez-le à la carte
         data.forEach(festival => {
             let marker = L.marker([festival.lat, festival.lon]).addTo(map);
-            marker.bindPopup("<b>" + festival.nom + "</b><br>" + festival.ville);
+            marker.bindPopup("<b>" + festival.nom + "</b><br>" + festival.ville + "<br><a href='" + festival.url + "' target='_blank'>" + festival.url + "</a>");
             markers.push(marker);
         });
 
