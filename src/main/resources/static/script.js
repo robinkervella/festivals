@@ -27,6 +27,10 @@ fetch("http://localhost:8080/api/festivals")
     })
     .catch(error => console.error(error));
 
+/**
+ * Cette fonction sert à filter la table festivals en fonction des termes recherchés
+ * par l'utilisateur. Elle filtre les noms des festivals et les villes.
+ */
 function filterFestivals() {
 
     let input = document.getElementById('search-input');
