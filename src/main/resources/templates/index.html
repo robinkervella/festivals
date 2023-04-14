@@ -13,6 +13,10 @@
 <form action="create">
     <button type="submit" id="add-festival">Ajouter un festival</button>
 </form>
+<div id="search">
+    <label for="search-input">Rechercher un festival :</label>
+    <input type="text" id="search-input" oninput="filterFestivals()" placeholder="Entrez un nom ou une ville...">
+</div>
 <table id="festivals-table">
     <thead>
     <tr>
