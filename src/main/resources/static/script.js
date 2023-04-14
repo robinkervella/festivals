@@ -48,6 +48,38 @@ fetch("http://localhost:8080/api/festivals")
     })
     .catch(error => console.error(error));
 
+/**
+ * Cette fonction sert à filter la table festivals en fonction des termes recherchés
+ * par l'utilisateur. Elle filtre les noms des festivals et les villes.
+ */
+function filterFestivals() {
+
+    let input = document.getElementById('search-input');
+    let filter = input.value.toUpperCase();
+    let table = document.querySelector('table');
+    let rows = table.querySelectorAll('tr');
+
+
+    for (let i = 0; i < rows.length; i++) {
+        let nameCol = rows[i].querySelector('td:nth-child(1)');
+        let cityCol = rows[i].querySelector('td:nth-child(2)');
+        if (nameCol || cityCol) {
+            let name = nameCol.textContent.toUpperCase();
+            let city = cityCol.textContent.toUpperCase();
+            if (name.includes(filter) || city.includes(filter)) {
+                rows[i].style.display = '';
+            } else {
+                rows[i].style.display = 'none';
+            }
+        }
+    }
+}
+
+input.addEventListener('keyup', function () {
+    filterTable();
+});
+
+
 
 
 
