@@ -1,50 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Créer un festival</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Créer un festival</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+          integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <link rel="stylesheet" href="style.css?v=1">
 </head>
 <body>
 <h1>Créer un festival</h1>
 <form th:action="@{/ajouterFestival}" th:object="${festival}" method="post">
-  <div>
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom" required>
-  </div>
-  <div>
-    <label for="ville">Ville :</label>
-    <input type="text" id="ville" name="ville" required>
-  </div>
-  <div>
-    <label for="lieu">Lieu :</label>
-    <input type="text" id="lieu" name="lieu" required>
-  </div>
-  <div>
-    <label for="cp">Code postal :</label>
-    <input type="number" id="cp" name="cp" required>
-  </div>
-  <div>
-    <label for="url">URL :</label>
-    <input type="text" id="url" name="url" required>
-  </div>
-  <div>
-    <label for="debut">Date début :</label>
-    <input type="date" id="debut" name="debut" required>
-  </div>
-  <div>
-    <label for="fin">Date fin :</label>
-    <input type="date" id="fin" name="fin" required>
-  </div>
-  <div>
-    <label for="lat">Latitude :</label>
-    <input type="text" id="lat" name="lat" required>
-  </div>
-  <div>
-    <label for="lon">Longitude :</label>
-    <input type="text" id="lon" name="lon" required>
-  </div>
-  <button type="submit">Créer</button>
+    <div>
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+    </div>
+    <div>
+        <label for="ville">Ville :</label>
+        <input type="text" id="ville" name="ville" required>
+    </div>
+    <div>
+        <label for="lieu">Lieu :</label>
+        <input type="text" id="lieu" name="lieu" required>
+    </div>
+    <div>
+        <label for="cp">Code postal :</label>
+        <input type="number" id="cp" name="cp" required>
+    </div>
+    <div>
+        <label for="url">URL :</label>
+        <input type="text" id="url" name="url" required>
+    </div>
+    <div>
+        <label for="debut">Date début :</label>
+        <input type="date" id="debut" name="debut" required>
+    </div>
+    <div>
+        <label for="fin">Date fin :</label>
+        <input type="date" id="fin" name="fin" required>
+    </div>
+    <div>
+        <label for="lat"></label>
+        <input type="hidden" id="lat" name="lat" required>
+    </div>
+    <div>
+        <label for="lon">Emplacement du festival :</label>
+        <input type="hidden" id="lon" name="lon" required>
+    </div>
+    <div id="mapForm"></div>
+    <button type="submit">Créer</button>
 </form>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<script src="mapForm.js"></script>
 </body>
 </html>
