@@ -1,4 +1,3 @@
-// Initialise une carte centrée sur la région Bretagne
 let mapForm = L.map('mapForm').setView([48.202047, -2.932644], 8);
 
 /**
@@ -12,7 +11,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Crée un marqueur qui sera utilisé pour afficher l'emplacement sélectionné
 let marker = null;
 
-// Fonction appelée lorsqu'un clic est effectué sur la carte
+/**
+
+ Cette fonction est appelée lorsqu'un utilisateur clique sur la carte.
+
+ @param {MouseEvent} e - L'événement de clic de la carte.
+
+ @return {void}
+ */
 function onMapClick(e) {
     // Récupère les coordonnées de l'emplacement sélectionné
     const lat = e.latlng.lat.toFixed(6);
